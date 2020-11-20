@@ -1,14 +1,13 @@
 from tkinter.scrolledtext import ScrolledText
-from Views.ViewConfiguration import Congifuration
 
 class TextField:
    def __init__(self,master):
       self.master = master
       self.textField = ScrolledText(
          self.master,
-         width = Congifuration.windowWidth,
-         height = Congifuration.windowHeight,
-         font = Congifuration.textSize
+         width = 50,
+         height = 30,
+         font = 20
       )
       self.textField.pack()
 
