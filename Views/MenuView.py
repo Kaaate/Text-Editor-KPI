@@ -1,36 +1,31 @@
 from tkinter import Menu
 
 class Menubar:
-    def __init__(self, master):
-        menubar = Menu(master)
+    def __init__(self, root):
+
+        # delegate (UIController)
+        self.delegate = None
+
+        # main menu
+        menubar = Menu(root)
+
+        # TODO Create menus
+        # File menu
         filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="Save", command=self.donothing)
-        filemenu.add_command(label="Save as...", command=self.donothing)
-        filemenu.add_command(label="Close", command=self.donothing)
 
-        filemenu.add_separator()
+        filemenu.add_command(label = "Open", command = self.buttonPressed)
+        filemenu.add_command(label = "Save", command = self.buttonPressed)
+        filemenu.add_command(label = "Close", command = self.buttonPressed)
 
-        filemenu.add_command(label="Exit", command=master.quit)
-        menubar.add_cascade(label="File", menu=filemenu)
-        editmenu = Menu(menubar, tearoff=0)
-        editmenu.add_command(label="Undo", command=self.donothing)
+        menubar.add_cascade(label = "File", menu = filemenu)
 
-        editmenu.add_separator()
+        root.config(menu = menubar)
 
-        editmenu.add_command(label="Cut", command=self.donothing)
-        editmenu.add_command(label="Copy", command=self.donothing)
-        editmenu.add_command(label="Paste", command=self.donothing)
-        editmenu.add_command(label="Delete", command=self.donothing)
-        editmenu.add_command(label="Select All", command=self.donothing)
+    def setDelegate(self, delegate):
+        self.delegate = delegate
 
-        menubar.add_cascade(label="Edit", menu=editmenu)
-        helpmenu = Menu(menubar, tearoff=0)
-        helpmenu.add_command(label="Help Index", command=self.donothing)
-        helpmenu.add_command(label="About...", command=self.donothing)
-        menubar.add_cascade(label="Help", menu=helpmenu)
-
-        master.config(menu = menubar)
-
-    def donothing(self):
-        print("OK")
+    # TODO Create *name*ButtonPressedFunctions
+    def buttonPressed(self):
+        if self.delegate is not None:
+            self.delegate.buttonPressed()
 

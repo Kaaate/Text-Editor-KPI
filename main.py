@@ -1,12 +1,13 @@
 from tkinter import Tk
-from Views.TextFieldView import TextField
-from Views.MenuView import Menubar
+from Controller import UIController
 
+# create window
 root = Tk()
 root.title("Lab6")
 root.resizable(0,0)
 
-text = TextField(root)
-menubar = Menubar(root)
+# create view
+uiViewController = UIController(root)
+uiViewController.setDelegateFoMenuView()
 
 root.mainloop()

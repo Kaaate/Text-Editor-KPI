@@ -11,5 +11,9 @@ class TextField:
       )
       self.textField.pack()
 
-   def printText(self):
-      print(self.textField.get('1.0', 'end-1c'))
+   def __str__(self):
+      return self.textField.get('1.0', 'end-1c')
+
+   def __set__(self, instance, value):
+      self.textField.insert('1.0', value)
+
