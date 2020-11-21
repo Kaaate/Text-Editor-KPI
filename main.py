@@ -8,6 +8,5 @@ root.resizable(0,0)
 
 # create view
 uiViewController = UIController(root)
-uiViewController.setDelegateFoMenuView()
 
 root.mainloop()

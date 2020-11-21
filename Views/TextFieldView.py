@@ -14,6 +14,7 @@ class TextField:
    def __str__(self):
       return self.textField.get('1.0', 'end-1c')
 
-   def __set__(self, instance, value):
+   def setString(self, value):
+      self.textField.delete('1.0', 'end-1c')
       self.textField.insert('1.0', value)
 
